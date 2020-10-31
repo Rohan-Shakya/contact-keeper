@@ -304,6 +304,12 @@ img {
 }
 
 /* Forms */
+
+.form-container {
+  max-width: 500px;
+  width: 90%;
+  margin: 2rem auto;
+}
 input {
   margin: 1.2rem 0;
 }
