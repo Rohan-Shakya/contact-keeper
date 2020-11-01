@@ -32,7 +32,7 @@ export const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (current == null) {
+    if (current === null) {
       addContact(contact);
     } else {
       updateContact(contact);

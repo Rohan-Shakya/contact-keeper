@@ -57,15 +57,27 @@ router.post(
 // @route    PUT  api/contacts
 // @desc     Update contact
 // @access   Private
-router.put('/:id', (req, res) => {
-  res.send('Update Contact');
+router.put('/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    await Contact.findByIdAndUpdate(id, req.body);
+    res.json(req.body);
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
 });
 
 // @route    DELETE  api/contacts
 // @desc     Delete contact
 // @access   Private
-router.delete('/:id', (req, res) => {
-  res.send('Delete Contact');
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    await Contact.findByIdAndDelete({ _id: id });
+    res.send('Delete Contact');
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
 });
 
 module.exports = router;
